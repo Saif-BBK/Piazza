@@ -16,7 +16,7 @@ require("dotenv").config();
 
 connectDB();
 
-app.use("/health",userAuthenticate, (req, res) => {
+app.use("/health", (req, res) => {
   res.status(200).send("OK");
 });
 
