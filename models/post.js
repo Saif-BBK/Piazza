@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
-const shortid = require("shortid");
 
 const postSchema = new mongoose.Schema({
   postId: {
     type: String,
-    default:()=> shortid.generate(),
-    unique:true
+    unique: true,
   },
   post: {
     type: String,
@@ -47,7 +45,14 @@ const postSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  comments: [
+    {
+      type: String,
+    },
+  ],
+  likeActions:{
+    type:String
+  }
 });
 
-
-module.exports = mongoose.model("Post", postSchema);;
+module.exports = mongoose.model("Post", postSchema);
