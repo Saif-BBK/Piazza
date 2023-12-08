@@ -4,6 +4,10 @@ const Comment = require("../models/comments");
 const Post = require("../models/post");
 const shortid = require("shortid");
 
+
+
+
+
 // create post
 router.post("/create", async (req, res) => {
   const { post, postTitle, postBody, postTopic, status, comments } = req.body;
