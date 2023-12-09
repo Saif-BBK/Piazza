@@ -38,7 +38,7 @@ router.post("/add-comment", async (req, res) => {
 
     await post.save();
 
-    res.status(201).json({ message: "Comment added successfully." });
+    res.status(201).json(post);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error." });

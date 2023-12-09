@@ -60,7 +60,8 @@ router.post("/like-post", async (req, res) => {
       { $inc: { numberOfLikes: 1, numberOfDislikes: existingDislike ? -1 : 0 } }
     );
 
-    res.status(201).json({ message: "Post liked successfully." });
+    const updatedPost=await Post.findOne({ postId })
+    res.status(201).json(updatedPost);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error." });
@@ -119,7 +120,8 @@ router.post("/dislike-post", async (req, res) => {
       { $inc: { numberOfLikes: existingLike ? -1 : 0, numberOfDislikes: 1 } }
     );
 
-    res.status(201).json({ message: "Post disliked successfully." });
+    const updatedPost=await Post.findOne({ postId })
+    res.status(201).json(updatedPost);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error." });

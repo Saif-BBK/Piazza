@@ -30,7 +30,7 @@ router.post("/create", async (req, res) => {
       await newPost.save();
     }
 
-    res.status(201).json({ message: "Post added successfully." });
+    res.status(201).json(newPost);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error." });
@@ -66,7 +66,7 @@ router.put("/update", async (req, res) => {
 
     await existingPost.save();
 
-    res.status(200).json({ message: "Post updated successfully." });
+    res.status(200).json(existingPost);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error." });
