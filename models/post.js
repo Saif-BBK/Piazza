@@ -23,7 +23,7 @@ const postSchema = new mongoose.Schema({
   },
   expiresAt: {
     type: Date,
-    default: () => Date.now() + 10 * 60 * 1000, // 5 minutes from now
+    default: () => Date.now() + 60 * 60 * 1000, // 5 minutes from now
   },
   postBody: {
     type: String,
